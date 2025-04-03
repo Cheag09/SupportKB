@@ -122,7 +122,7 @@ const guides = {
         <ol>
           <li>Navigate to the pax store</li>
           <li>Step2 new step for testing</li>
-          <li>Step3</li>
+          <li>Step3TEST</li>
           <li>step4</li>
           <li>step5</li>
           <li>step6</li>
