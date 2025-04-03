@@ -121,7 +121,7 @@ const guides = {
         <p>Follow these steps to push a var sheets to a pax device:</p>
         <ol>
           <li>Navigate to the pax store</li>
-          <li>Step2</li>
+          <li>Step2 new step for testing</li>
           <li>Step3</li>
           <li>step4</li>
           <li>step5</li>
