@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Team Knowledge Base</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .search-container {
+      background-color: #34495e;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .search-box {
+      width: 80%;
+      max-width: 600px;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    
+    main {
+      display: flex;
+      flex: 1;
+    }
+    
+    .sidebar {
+      width: 250px;
+      background-color: #f5f5f5;
+      padding: 1rem;
+      border-right: 1px solid #ddd;
+    }
+    
+    .category {
+      margin-bottom: 1rem;
+    }
+    
+    .category-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+    
+    .category-items {
+      list-style: none;
+    }
+    
+    .category-items li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .category-items a {
+      text-decoration: none;
+      color: #3498db;
+      display: block;
+      padding: 0.5rem;
+      border-radius: 4px;
+    }
+    
+    .category-items a:hover {
+      background-color: #eee;
+    }
+    
+    .content {
+      flex: 1;
+      padding: 2rem;
+    }
+    
+    .guide {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .guide h1 {
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+    
+    .guide-meta {
+      color: #7f8c8d;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .guide-content {
+      line-height: 1.6;
+    }
+    
+    .guide-content h2 {
+      margin: 1.5rem 0 0.75rem;
+      color: #2c3e50;
+    }
+    
+    .guide-content p {
+      margin-bottom: 1rem;
+    }
+    
+    .guide-content ul, .guide-content ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .search-results {
+      display: none;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .result-item {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .result-item:hover {
+      background-color: #f9f9f9;
+    }
+    
+    .result-title {
+      color: #2980b9;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .result-snippet {
+      color: #333;
+      font-size: 0.9rem;
+    }
+    
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Support Team Knowledge Base</h1>
+  </header>
+  
+  <div class="search-container">
+    <input type="text" class="search-box" id="searchInput" placeholder="Search guides...">
+  </div>
+  
+  <main>
+    <div class="sidebar">
+      <div class="category">
+        <div class="category-title">Customer Issues</div>
+        <ul class="category-items">
+          <li><a href="#" onclick="loadGuide('password-reset')">Password Reset Guide</a></li>
+          <li><a href="#" onclick="loadGuide('account-lockout')">Account Lockout Procedures</a></li>
+          <li><a href="#" onclick="loadGuide('subscription-issues')">Subscription Issues</a></li>
+        </ul>
+      </div>
+      
+      <div class="category">
+        <div class="category-title">Technical Support</div>
+        <ul class="category-items">
+          <li><a href="#" onclick="loadGuide('connectivity-troubleshooting')">Connectivity Troubleshooting</a></li>
+          <li><a href="#" onclick="loadGuide('software-errors')">Common Software Errors</a></li>
+          <li><a href="#" onclick="loadGuide('system-outages')">System Outage Procedures</a></li>
+          <li><a href="#" onclick="loadGuide('onboarding-checklist')">onboarding checklist</a></li>
+        </ul>
+      </div>
+      
+      <div class="category">
+        <div class="category-title">Billing</div>
+        <ul class="category-items">
+          <li><a href="#" onclick="loadGuide('invoice-questions')">Invoice Questions</a></li>
+          <li><a href="#" onclick="loadGuide('refund-policy')">Refund Policy Guide</a></li>
+          <li><a href="#" onclick="loadGuide('payment-processing')">Payment Processing Issues</a></li>
+          <li><a href="#" onclick="loadGuide('Test-guide')">Test guide</a></li>
+          <li><a href="#" onclick="loadGuide('Static-printer-guide')">Static Printer Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="content">
+      <div class="guide" id="guide-content">
+        <h1>Welcome to the Support Knowledge Base</h1>
+        <p>Select a guide from the sidebar or search for what you need.</p>
+        <p>This knowledge base contains step-by-step guides for handling common support scenarios.</p>
+      </div>
+      
+      <div class="search-results" id="search-results">
+        <h1>Search Results</h1>
+        <div class="results-list" id="results-list">
+          <!-- Search results will be populated here -->
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <p>Internal Support Team Knowledge Base | Last Updated: April 3, 2025</p>
+  </footer>
+  <script src="guides/guides.js"></script>
+  <script>
+    // Function to load a guide
+    function loadGuide(guideId) {
+  const guide = guides[guideId];
+  if (guide) {
+    if (guide.externalUrl) {
+      // Open external URL in a new tab
+      window.open(guide.externalUrl, '_blank');
+    } else {
+      // Display internal guide as before
+      document.getElementById('guide-content').innerHTML = `
+        <h1>${guide.title}</h1>
+        <div class="guide-meta">Last updated: ${guide.lastUpdated}</div>
+        <div class="guide-content">${guide.content}</div>
+      `;
+      document.getElementById('guide-content').style.display = 'block';
+      document.getElementById('search-results').style.display = 'none';
+    }
+  }
+}
+    
+    // Simple search function
+    document.getElementById('searchInput').addEventListener('keyup', function(e) {
+      if (e.key === 'Enter') {
+        const searchTerm = this.value.toLowerCase();
+        const resultsContainer = document.getElementById('results-list');
+        resultsContainer.innerHTML = '';
+        
+        if (searchTerm.length < 2) return;
+        
+        let resultsFound = false;
+        
+        for (const guideId in guides) {
+          const guide = guides[guideId];
+          
+          if (guide.title.toLowerCase().includes(searchTerm) || 
+              guide.content.toLowerCase().includes(searchTerm)) {
+            
+            const resultItem = document.createElement('div');
+            resultItem.className = 'result-item';
+            resultItem.innerHTML = `
+              <div class="result-title">${guide.title}</div>
+              <div class="result-snippet">Last updated: ${guide.lastUpdated}</div>
+            `;
+            resultItem.addEventListener('click', function() {
+              loadGuide(guideId);
+            });
+            
+            resultsContainer.appendChild(resultItem);
+            resultsFound = true;
+          }
+        }
+        
+        if (!resultsFound) {
+          resultsContainer.innerHTML = '<p>No matching guides found. Try different keywords.</p>';
+        }
+        
+        document.getElementById('guide-content').style.display = 'none';
+        document.getElementById('search-results').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
