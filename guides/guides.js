@@ -98,7 +98,6 @@ const guides = {
     <p>Please do not modify the structure of the document. If you need to add items, contact level 2.</p>
   `
 },
-
 'onboarding-checklist': {
   title: 'New Employee Onboarding Checklist',
   lastUpdated: 'April 1, 2025',
@@ -113,5 +112,25 @@ const guides = {
     <h2>Important Notes</h2>
     <p>Please do not modify the structure of the checklist. If you need to add items, contact HR.</p>
   `
+},
+'how-to-push-a-var': {
+  title: 'How to push a var',
+  lastUpdated: 'April 1, 2025',
+  content: `
+        <h2>Steps for pushing a vart</h2>
+        <p>Follow these steps to push a var sheets to a pax device:</p>
+        <ol>
+          <li>Navigate to the pax store</li>
+          <li>Step2</li>
+          <li>Step3</li>
+          <li>step4</li>
+          <li>step5</li>
+          <li>step6</li>
+          <li>step7</li>
+        </ol>
+        
+        <h2>Important Notes</h2>
+        <p>Never delete an existiing TSYS app without first confirming the batch has been cleared.</p>
+      `
 }
   };
